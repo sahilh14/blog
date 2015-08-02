@@ -4,20 +4,12 @@
     <br></br>
     <br></br>
     <body>
-        {% if form %}
-            <form action=''>
-                {{ form.as_table }}
-                <input type='submit' value='Search'></input>
-            </form>
-            <form action=''>
-                <p>Write a Blog <input type='submit' value='Try your hand'></input></p>
-            </form>
-        {% else %}
-            <form action='' method='post'>
-                {% csrf_token %}
-                <textarea name='message' rows='10' cols='50'></textarea>
-                <input type='submit' value='Save'></input>
-            </form>
-        {% endif %}
+        <form action=''>
+            {{ form.as_table }}
+            <input type='submit' value='Search'></input>
+        </form>
+        <form action=''>
+            <p>Write a Blog <input type='submit' value='Try your hand'></input></p>
+        </form>
     </body>
 </html>
