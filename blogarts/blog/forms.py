@@ -11,7 +11,7 @@ class AddBlogForm(forms.Form):
     
     title = forms.CharField(max_length=100)
     message = forms.CharField(label = '', widget=forms.Textarea)
-#    email = forms.EmailField(required=False)
+    email = forms.EmailField()
 
 #    class Meta:
 #        model = models.Blog

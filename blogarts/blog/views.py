@@ -26,7 +26,9 @@ def get_blog_home(request, url_name):
         return render(request, 'blog/blog_add_template.html', {'form':form})
 
     elif 'name' in request.GET:
-        return render(request, 'blog/blog_search_template.html', {'query':request.GET['name']})
+        form = forms.AddBlogForm()
+        blog = models.Blog.objects.filter(title=request.GET['name'])        
+        return render(request, 'blog/blog_search_template.html', {'query':request.GET['name'],'blog':blog, 'form':form})
 
     form = forms.SearchForm(initial={'name':'Blog'})
     return render(request, 'blog/blog_home_template.html', {'form':form})
@@ -41,7 +43,7 @@ def post_blog_home(request):
         title = cd['title']
         message = cd['message']
 
-        b = models.Blog(title=title, author=models.Author.objects.filter(name='Sahil')[0], content=message, published=datetime.datetime.now())
+        b = models.Blog(title=title, author=models.Author.objects.get(name='Sahil'), content=message, published=datetime.datetime.now())
         b.save()
 
         return HttpResponseRedirect('/blogs/added')

@@ -1,13 +1,14 @@
 <p>You searched for: <strong>{{ query }}</strong></p>
-<!--
-{% if books %}
-    <p>Found {{ books|length }} book{{ books|pluralize }}.</p>
-    <ul>
-        {% for book in books %}
-        <li>{{ book.title }}</li>
-        {% endfor %}
-    </ul>
+{% if blog %}
+<p>Found {{ blog|length }} blog{{ blog|pluralize }}.</p>
+<ul>
+    {{ request.REMOTE_ADDR }}
+    {% for b in blog %}
+    <li>
+        {{b.content}}
+    </li>
+    {% endfor %}
+</ul>
 {% else %}
-    <p>No books matched your search criteria.</p>
+    <p>No blogs matched your search criteria.</p>
 {% endif %}
--->
