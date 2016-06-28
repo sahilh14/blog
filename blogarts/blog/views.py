@@ -20,6 +20,7 @@ def get_blog_home(request, url_name):
 
 #    print request.META
     print "hi"
+    print "hello"
     http_referer = request.META['HTTP_REFERER']
 
     if url_name in http_referer and request.GET == {}:
